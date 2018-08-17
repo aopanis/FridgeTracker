@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Fridge Tracker</string>
+    <string name="shopping_list">Shopping List</string>
+    <string-array name="unit_choices">
+        <item>g</item>
+        <item>oz</item>
+        <item>kg</item>
+        <item>lbs</item>
+    </string-array>
+</resources>
