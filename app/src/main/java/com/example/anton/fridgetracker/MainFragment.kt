@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-//    private var listener: OnFragmentInteractionListener? = null
+    private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
@@ -64,8 +64,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         floatingActionButton.setOnClickListener {_ ->
-            val intent = Intent(context, AddItem::class.java)
-            startActivity(intent)
+            listener?.onButtonClick()
         }
     }
 
@@ -106,18 +105,18 @@ class MainFragment : Fragment() {
 //        listener?.onFragmentInteraction(uri)
 //    }
 
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//        if (context is OnFragmentInteractionListener) {
-//            listener = context
-//        } else {
-//            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
-//        }
-//    }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnFragmentInteractionListener) {
+            listener = context
+        } else {
+            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+        }
+    }
 
     override fun onDetach() {
         super.onDetach()
-//        listener = null
+        listener = null
     }
 
     /**
@@ -131,10 +130,9 @@ class MainFragment : Fragment() {
      * (http://developer.android.com/training/basics/fragments/communicating.html)
      * for more information.
      */
-/*    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }*/
+    interface OnFragmentInteractionListener {
+        fun onButtonClick()
+    }
 
     companion object {
         /**

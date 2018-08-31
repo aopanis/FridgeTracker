@@ -23,12 +23,11 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
-            
-            <fragment android:name="com.example.anton.fridgetracker.MainFragment"
-                android:id="@+id/main_fragment"
-                android:layout_weight="1"
+
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fragment_container"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"/>
+                android:layout_height="match_parent" />
 
         </LinearLayout>
     </FrameLayout>
